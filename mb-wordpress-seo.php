@@ -1,10 +1,10 @@
 <?php
 /*
  * Plugin Name: Meta Box WordPress Seo
- * Plugin URI: http://metabox.io
- * Description: Add meta-box fields to WordPress SEO Content Analysis
+ * Plugin URI: http://metabox.io/plugins/wordpress-seo/
+ * Description: Add custom fields to WordPress SEO Content Analysis
  * Author: ThaoHa, Rilwis
- * Version: 1.0.0
+ * Version: 1.0
  * Author URI: http://metabox.io
  */
 
@@ -19,9 +19,13 @@ if ( ! class_exists( 'MB_WordPress_Seo' ) )
 		 *
 		 * @param $content
 		 */
-		static function add_custom_field( $content )
+		public static function add_custom_field( $content )
 		{
-			$meta_boxes = apply_filters( 'rwmb_meta_boxes', array() );
+			static $meta_boxes = null;
+			if ( null === $meta_boxes )
+			{
+				$meta_boxes = apply_filters( 'rwmb_meta_boxes', array() );
+			}
 
 		    foreach ( $meta_boxes as $meta_box )
 		    {
@@ -29,8 +33,7 @@ if ( ! class_exists( 'MB_WordPress_Seo' ) )
 		        {
 		            if ( isset( $field['add_to_wpseo_analysis'] ) && $field['add_to_wpseo_analysis'] )
 		            {
-		            	$value = rwmb_meta( $field['id'], $field['type'] );
-		            	$value = is_array( $value ) ? implode( ' ', $value ) : $value;
+		            	$value = rwmb_get_value( $field['id'] );
 		                $content .= ' ' . $value;
 		            }
 		        }
