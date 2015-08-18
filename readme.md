@@ -1,20 +1,16 @@
 ## Description
 
-**Meta Box WordPress SEO** is a free extension for [Meta Box](http://metabox.io) plugin which allow developers to add content of custom fields to WordPress SEO Content Analysis to have better SEO score.
+**Meta Box WordPress SEO** is a free extension for [Meta Box](https://metabox.io) plugin which allow developers to add content of custom fields to Yoast SEO Content Analysis to have better SEO score.
 
 Sometimes we create custom fields to store **real** content for the posts and they are actually used in the frontend. Search engines scan and analyze them. So we should analyze them in the admin, too.
 
-Major features include:
-
-* simple
-* light weight
 
 ### Plugin Links
 
-- [Project Page](http://metabox.io/plugins/wordpress-seo/)
-- [Documentation](http://metabox.io/docs/)
+- [Project Page](https://metabox.io/plugins/wordpress-seo/)
+- [Documentation](https://metabox.io/docs/)
 - [Github repo](https://github.com/rilwis/mb-wordpress-seo/)
-- [View other premium extensions](http://metabox.io)
+- [View other premium extensions](https://metabox.io)
 
 ## Installation
 

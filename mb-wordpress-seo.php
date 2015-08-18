@@ -8,38 +8,35 @@
  * Author URI: http://metabox.io
  */
 
-add_filter( 'wpseo_pre_analysis_post_content', array( 'MB_WordPress_Seo', 'add_custom_field' ) );
+add_filter( 'wpseo_pre_analysis_post_content', 'mb_wpseo_add_fields_to_analysis', 10, 2 );
 
-if ( ! class_exists( 'MB_WordPress_Seo' ) )
+/**
+ * Add field value to seo analysis
+ *
+ * @param string  $content Post content
+ * @param WP_Post $post    Post object
+ *
+ * @return string
+ */
+function mb_wpseo_add_fields_to_analysis( $content, $post )
 {
-	class MB_WordPress_Seo
+	static $meta_boxes = null;
+	if ( null === $meta_boxes )
 	{
-		/**
-		 * Add field value to seo analysis
-		 *
-		 * @param $content
-		 */
-		public static function add_custom_field( $content )
+		$meta_boxes = apply_filters( 'rwmb_meta_boxes', array() );
+	}
+
+	foreach ( $meta_boxes as $meta_box )
+	{
+		foreach ( $meta_box['fields'] as $field )
 		{
-			static $meta_boxes = null;
-			if ( null === $meta_boxes )
+			if ( isset( $field['add_to_wpseo_analysis'] ) && $field['add_to_wpseo_analysis'] )
 			{
-				$meta_boxes = apply_filters( 'rwmb_meta_boxes', array() );
+				$value = rwmb_get_field( $field['id'], '', $post->ID );
+				$content .= ' ' . $value;
 			}
-
-		    foreach ( $meta_boxes as $meta_box )
-		    {
-		        foreach ( $meta_box['fields'] as $field )
-		        {
-		            if ( isset( $field['add_to_wpseo_analysis'] ) && $field['add_to_wpseo_analysis'] )
-		            {
-		            	$value = rwmb_get_value( $field['id'] );
-		                $content .= ' ' . $value;
-		            }
-		        }
-		    }
-
-		    return $content;
 		}
 	}
+
+	return $content;
 }
