@@ -1,9 +1,9 @@
 <?php
 /*
- * Plugin Name: Meta Box WordPress Seo
- * Plugin URI: http://metabox.io/plugins/wordpress-seo/
- * Description: Add custom fields to WordPress SEO Content Analysis
- * Author: ThaoHa, Rilwis
+ * Plugin Name: Meta Box Yoast Seo
+ * Plugin URI: https://metabox.io/plugins/meta-box-yoast-seo/
+ * Description: Add content of custom fields to Yoast SEO Content Analysis.
+ * Author: Rilwis, ThaoHa
  * Version: 1.0
  * Author URI: http://metabox.io
  */
