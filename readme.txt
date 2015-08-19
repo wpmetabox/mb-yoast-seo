@@ -43,7 +43,7 @@ To start using text limiter, just add the following parameters to fields:
 
 == Screenshots ==
 
-The plugins work
+1. Plugin in action
 
 == Changelog ==
 
