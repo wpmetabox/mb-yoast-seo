@@ -1,21 +1,21 @@
-=== Meta Box Yoast SEO ===
-Contributors: rilwis, fitwp, thaoha
+=== Meta Box for Yoast SEO ===
+Contributors: metabox, rilwis, fitwp, thaoha
 Donate link: http://www.deluxeblogtips.com/donate
 Tags: meta-box, custom-fields, custom-field, meta, meta-boxes, wordpress-seo, seo, seo-analysis, content-analysis, yoast, yoast-seo
 Requires at least: 4.2
-Tested up to: 4.3
-Stable tag: 1.0
+Tested up to: 4.4
+Stable tag: 1.1.0
 License: GPL-2.0
 
 Add content of custom fields to Yoast SEO Content Analysis.
 
 == Description ==
 
-**Meta Box WordPress SEO** is a free extension for [Meta Box](https://metabox.io) plugin which allows developers to add content of custom fields to Yoast SEO Content Analysis to have better SEO score.
+**Meta Box for WordPress SEO** is a free extension for [Meta Box](https://metabox.io) plugin which allows developers to add content of custom fields to Yoast SEO Content Analysis to have better SEO score.
 
 There are situations when we create custom fields to store real content for the posts. They are actually displayed in the frontend. Search engines such as Google or Bing see them and analyze them. But by default, Yoast SEO plugin takes only post content to analyze for SEO score and gives us feedback based on the post content. The plugin doesn’t analyze the all the content that appears to the search engine, which is a big missing part and that sometimes confuses us in SEO term.
 
-So, the plugin *Meta Box Yoast SEO* fixes that problem by allowing us to add custom fields to the content analyzed by Yoast SEO plugin. This way, the Yoast SEO plugin and search engine will see the same content and we will have a correct advice for SEO content as well as correct SEO score.
+So, the plugin *Meta Box for Yoast SEO* fixes that problem by allowing us to add custom fields to the content analyzed by Yoast SEO plugin. This way, the Yoast SEO plugin and search engine will see the same content and we will have a correct advice for SEO content as well as correct SEO score.
 
 ### Plugin Links
 
@@ -46,6 +46,9 @@ To start using text limiter, just add the following parameters to fields:
 1. Plugin in action
 
 == Changelog ==
+
+= 1.1.0 =
+* Update to work with Yoast SEO 3.0 which allows you to live preview the result with Javascript.
 
 = 1.0 =
 * First release
