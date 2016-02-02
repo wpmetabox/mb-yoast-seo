@@ -5,7 +5,7 @@
  * Description: Add content of custom fields to Yoast SEO Content Analysis.
  * Author: Rilwis, ThaoHa
  * Version: 1.1.0
- * Author URI: http://metabox.io
+ * Author URI: http://www.deluxeblogtips.com
  */
 
 /**
@@ -18,10 +18,7 @@ class MB_Yoast_SEO
 	 */
 	public function __construct()
 	{
-		if ( is_admin() )
-		{
-			add_action( 'rwmb_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-		}
+		add_action( 'rwmb_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 	}
 
 	/**
