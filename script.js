@@ -7,7 +7,11 @@
 		{
 			addEventListener( 'load', function ()
 			{
-				module.load();
+				// Wait for YoastSEO to be loaded
+				setTimeout( function ()
+				{
+					module.load();
+				}, 0 );
 			} );
 		},
 
