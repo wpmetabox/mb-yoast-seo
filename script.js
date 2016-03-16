@@ -7,20 +7,17 @@
 		{
 			addEventListener( 'load', function ()
 			{
-				// Wait for YoastSEO to be loaded
-				setTimeout( function ()
-				{
-					module.load();
-				}, 0 );
+				module.load();
 			} );
 		},
 
 		// Load plugin and add hooks.
 		load: function ()
 		{
-			YoastSEO.app.registerPlugin( 'MetaBox', { status: 'ready' } );
-			YoastSEO.app.registerModification( 'content', module.addContent, 'MetaBox', 5 );
+			YoastSEO.app.registerPlugin( 'MetaBox', { status: 'loading' } );
 			module.bind();
+			YoastSEO.app.pluginReady( 'MetaBox' );
+			YoastSEO.app.registerModification( 'content', module.addContent, 'MetaBox', 5 );
 		},
 
 		// Add content to Yoast SEO Analyzer.

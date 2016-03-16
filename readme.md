@@ -10,7 +10,7 @@ So, the plugin *Meta Box for Yoast SEO* fixes that problem by allowing us to add
 ### Plugin Links
 
 - [Homepage](https://metabox.io/plugins/meta-box-yoast-seo/)
-- [Github repo](https://github.com/rilwis/mb-wordpress-seo/)
+- [Github repo](https://github.com/rilwis/mb-yoast-seo)
 - [View other premium extensions](https://metabox.io/plugins/)
 
 ## Installation
