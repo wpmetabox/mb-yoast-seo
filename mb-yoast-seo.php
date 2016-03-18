@@ -4,7 +4,7 @@
  * Plugin URI: https://metabox.io/plugins/meta-box-yoast-seo/
  * Description: Add content of custom fields to Yoast SEO Content Analysis.
  * Author: Rilwis, ThaoHa
- * Version: 1.1.0
+ * Version: 1.1.1
  * Author URI: http://www.deluxeblogtips.com
  */
 
@@ -23,9 +23,9 @@ class MB_Yoast_SEO
 
 	/**
 	 * Enqueue plugin script.
-	 * @param RW_Meta_Box $obj
+	 * @param object $obj
 	 */
-	public function enqueue_scripts( RW_Meta_Box $obj )
+	public function enqueue_scripts( $obj )
 	{
 		wp_enqueue_script( 'mb-yoast-seo', plugins_url( 'script.js', __FILE__ ), array( 'jquery', 'yoast-seo' ), '', true );
 
@@ -33,11 +33,24 @@ class MB_Yoast_SEO
 		static $data = array();
 		foreach ( $obj->fields as $field )
 		{
-			if ( isset( $field['add_to_wpseo_analysis'] ) && $field['add_to_wpseo_analysis'] )
+			// If is a group of fields
+			if ( isset( $field['fields'] ) )
+			{
+				foreach ( $field['fields'] as $child_field )
+				{
+					if ( isset( $child_field['add_to_wpseo_analysis'] ) && $child_field['add_to_wpseo_analysis'] )
+					{
+						$data[] = $child_field['id'];
+					}
+				}
+			}
+			elseif ( isset( $field['add_to_wpseo_analysis'] ) && $field['add_to_wpseo_analysis'] )
 			{
 				$data[] = $field['id'];
 			}
 		}
+
+
 		wp_localize_script( 'mb-yoast-seo', 'MBYoastSEO', $data );
 	}
 }
