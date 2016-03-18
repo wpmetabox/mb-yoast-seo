@@ -1,0 +1,10 @@
+# Normalize EOL=LF
+* text=auto
+
+# Ignore files when export
+.DS_Store export-ignore
+Thumbs.db export-ignore
+.gitattributes export-ignore
+.gitignore export-ignore
+readme.md export-ignore
+*.json export-ignore
