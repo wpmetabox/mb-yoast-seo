@@ -1,5 +1,0 @@
-{
-	"scripts": {
-		"zip": "git archive -o meta-box-yoast-seo.zip --prefix=meta-box-yoast-seo/ HEAD"
-	}
-}

@@ -1,11 +1,12 @@
 /* global jQuery, YoastSEO, MBYoastSEO */
-(function ( $, fields ) {
+(function ( $, fields, document ) {
 	var module = {
 		// Initialize
 		init: function () {
-			addEventListener( 'load', function () {
-				module.load();
-			} );
+			addEventListener( 'load', module.load );
+
+			// For cloned fields: re-bind for new cloned fields
+			$( document ).on( 'clone', ':input[class|="rwmb"]', module.bind );
 		},
 
 		// Load plugin and add hooks.
@@ -25,10 +26,9 @@
 		},
 
 		// Update Yoast SEO analyzer when fields are updated.
-		// Use debounce technique, which triggers refresh only when keys stop being pressed.
 		bind: function () {
+			// Use debounce technique, which triggers refresh only when keys stop being pressed.
 			var timeout;
-
 			function refresh() {
 				clearTimeout( timeout );
 				timeout = setTimeout( function () {
@@ -36,12 +36,26 @@
 				}, 250 );
 			}
 
+			// Make sure clone fields are added.
+			module.getClonedFields();
+
 			fields.map( function ( fieldId ) {
 				document.getElementById( fieldId ).addEventListener( 'keyup', refresh );
+			} );
+		},
+
+		// Get clone fields.
+		getClonedFields: function () {
+			fields.map( function ( fieldId ) {
+				$( '[id^=' + fieldId + '_]' ).each( function () {
+					if ( - 1 === $.inArray( this.id, fields ) ) {
+						fields.push( this.id );
+					}
+				} );
 			} );
 		}
 	};
 
-	// Run on document ready
+	// Run on document ready.
 	$( module.init );
-})( jQuery, MBYoastSEO );
+})( jQuery, MBYoastSEO, document );
