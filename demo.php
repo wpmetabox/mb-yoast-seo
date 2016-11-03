@@ -17,6 +17,19 @@ add_filter( 'rwmb_meta_boxes', function ( $meta_boxes ) {
 				'add_to_wpseo_analysis' => true,
 			],
 			[
+				'id'                    => 'editor',
+				'name'                  => 'Editor',
+				'type'                  => 'wysiwyg',
+				'add_to_wpseo_analysis' => true,
+			],
+			[
+				'id'                    => 'editor_clone',
+				'name'                  => 'Editor Clone',
+				'type'                  => 'wysiwyg',
+				'clone'                 => true,
+				'add_to_wpseo_analysis' => true,
+			],
+			[
 				'id'     => 'group',
 				'name'   => 'Group',
 				'type'   => 'group',
