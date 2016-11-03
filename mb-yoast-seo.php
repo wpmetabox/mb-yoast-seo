@@ -4,7 +4,7 @@
  * Plugin URI: https://metabox.io/plugins/meta-box-yoast-seo/
  * Description: Add content of custom fields to Yoast SEO Content Analysis.
  * Author: Rilwis, ThaoHa
- * Version: 1.3
+ * Version: 1.3.1
  * Author URI: http://www.deluxeblogtips.com
  */
 
@@ -27,7 +27,7 @@ class MB_Yoast_SEO {
 		wp_enqueue_script( 'mb-yoast-seo', plugins_url( 'script.js', __FILE__ ), array(
 			'jquery',
 			'yoast-seo-post-scraper',
-		), '1.3', true );
+		), '1.3.1', true );
 
 		// Get all field IDs that adds content to Yoast SEO analyzer.
 		$this->add_fields( $meta_box->fields );

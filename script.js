@@ -28,6 +28,9 @@
 
 			YoastSEO.app.pluginReady( 'MetaBox' );
 			YoastSEO.app.registerModification( 'content', module.addContent, 'MetaBox', 5 );
+
+			// Make the Yoast SEO analyzer works for existing content when page loads.
+			module.update();
 		},
 
 		// Add content to Yoast SEO Analyzer.
