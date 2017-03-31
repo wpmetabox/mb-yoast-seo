@@ -3,9 +3,12 @@
  * Plugin Name: Meta Box for Yoast Seo
  * Plugin URI: https://metabox.io/plugins/meta-box-yoast-seo/
  * Description: Add content of custom fields to Yoast SEO Content Analysis.
- * Author: Rilwis, ThaoHa
- * Version: 1.3.1
- * Author URI: http://www.deluxeblogtips.com
+ * Author: MetaBox.io
+ * Version: 1.3.2
+ * Author URI: https://metabox.io
+ *
+ * @package Meta Box
+ * @subpage MB Yoast SEO
  */
 
 /**
@@ -14,6 +17,7 @@
 class MB_Yoast_SEO {
 	/**
 	 * Store IDs of fields that need to analyze content.
+	 *
 	 * @var array
 	 */
 	protected $fields = array();
@@ -24,13 +28,20 @@ class MB_Yoast_SEO {
 	 * @param RW_Meta_Box $meta_box The meta box object.
 	 */
 	public function enqueue( RW_Meta_Box $meta_box ) {
-		wp_enqueue_script( 'mb-yoast-seo', plugins_url( 'script.js', __FILE__ ), array(
-			'jquery',
-			'yoast-seo-post-scraper',
-		), '1.3.1', true );
+		// Only for posts.
+		$screen = get_current_screen();
+		if ( 'post' !== $screen->base ) {
+			return;
+		}
 
 		// Get all field IDs that adds content to Yoast SEO analyzer.
 		$this->add_fields( $meta_box->fields );
+
+		if ( empty( $this->fields ) ) {
+			return;
+		}
+
+		wp_enqueue_script( 'mb-yoast-seo', plugins_url( 'script.js', __FILE__ ), array( 'jquery', 'yoast-seo-post-scraper' ), '1.3.1', true );
 
 		// Send list of fields to JavaScript.
 		wp_localize_script( 'mb-yoast-seo', 'MBYoastSEO', $this->fields );
@@ -57,7 +68,7 @@ class MB_Yoast_SEO {
 		}
 
 		// Add the single field.
-		if ( $this->isAnalyzable( $field ) ) {
+		if ( $this->is_analyzable( $field ) ) {
 			$this->fields[] = $field['id'];
 		}
 	}
@@ -69,8 +80,8 @@ class MB_Yoast_SEO {
 	 *
 	 * @return bool
 	 */
-	protected function isAnalyzable( $field ) {
-		return ! in_array( $field['id'], $this->fields ) && isset( $field['add_to_wpseo_analysis'] ) && $field['add_to_wpseo_analysis'];
+	protected function is_analyzable( $field ) {
+		return ! in_array( $field['id'], $this->fields, true ) && ! empty( $field['add_to_wpseo_analysis'] );
 	}
 }
 
