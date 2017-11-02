@@ -28,6 +28,7 @@ class MB_Yoast_SEO {
 	 * @param RW_Meta_Box $meta_box The meta box object.
 	 */
 	public function enqueue( RW_Meta_Box $meta_box ) {
+		
 		// Use helper function to get correct URL to current folder, which can be used in themes/plugins.
 		list( , $url ) = RWMB_Loader::get_path( dirname( __FILE__ ) );
 		
