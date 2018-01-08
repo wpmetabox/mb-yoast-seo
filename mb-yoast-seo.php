@@ -4,7 +4,7 @@
  * Plugin URI: https://metabox.io/plugins/meta-box-yoast-seo/
  * Description: Add content of custom fields to Yoast SEO Content Analysis.
  * Author: MetaBox.io
- * Version: 1.3.2
+ * Version: 1.3.3
  * Author URI: https://metabox.io
  *
  * @package Meta Box
@@ -28,10 +28,10 @@ class MB_Yoast_SEO {
 	 * @param RW_Meta_Box $meta_box The meta box object.
 	 */
 	public function enqueue( RW_Meta_Box $meta_box ) {
-		
+
 		// Use helper function to get correct URL to current folder, which can be used in themes/plugins.
 		list( , $url ) = RWMB_Loader::get_path( dirname( __FILE__ ) );
-		
+
 		// Only for posts.
 		$screen = get_current_screen();
 		if ( 'post' !== $screen->base ) {

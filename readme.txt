@@ -3,8 +3,8 @@ Contributors: metabox, rilwis, fitwp, thaoha
 Donate link: http://www.deluxeblogtips.com/donate
 Tags: meta-box, custom-fields, custom-field, meta, meta-boxes, wordpress-seo, seo, seo-analysis, content-analysis, yoast, yoast-seo
 Requires at least: 4.2
-Tested up to: 4.7.3
-Stable tag: 1.3.2
+Tested up to: 4.9.1
+Stable tag: 1.3.3
 License: GPL-2.0
 
 Add content of custom fields to Yoast SEO Content Analysis.
