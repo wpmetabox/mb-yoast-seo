@@ -66,14 +66,21 @@ class MB_Yoast_SEO {
 	 * @param array $field Field parameters.
 	 */
 	protected function add_field( $field ) {
+		if ( empty( $field['id_attr'] ) ) {
+			$field['id_attr'] = $field['id'];
+		}
+		
 		// Add sub-fields recursively.
 		if ( isset( $field['fields'] ) ) {
+			foreach ( $field['fields'] as &$sub_field ) {
+				$sub_field['id_attr'] = $field['id_attr'] . '_' . $sub_field['id'];
+			}
 			$this->add_fields( $field['fields'] );
 		}
 
 		// Add the single field.
 		if ( $this->is_analyzable( $field ) ) {
-			$this->fields[] = $field['id'];
+			$this->fields[] = $field['id_attr'];
 		}
 	}
 
