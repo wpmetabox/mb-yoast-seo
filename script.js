@@ -45,8 +45,11 @@
 		listenToField: function( fieldId ) {
 			if ( isEditor( fieldId ) ) {
 				tinymce.get( fieldId ).on( 'keyup', module.update );
-			} else {
-				document.getElementById( fieldId ).addEventListener( 'keyup', module.update );
+				return;
+			}
+			var field = document.getElementById( fieldId );
+			if ( field ) {
+				field.addEventListener( 'keyup', module.update );
 			}
 		},
 
@@ -75,7 +78,7 @@
 	function getClonedFields() {
 		fields.map( function ( fieldId ) {
 			$( '[id^=' + fieldId + '_]' ).each( function () {
-				if ( - 1 === $.inArray( this.id, fields ) ) {
+				if ( -1 === $.inArray( this.id, fields ) ) {
 					fields.push( this.id );
 				}
 			} );
@@ -90,8 +93,12 @@
 	 * @returns string
 	 */
 	function getFieldContent( fieldId ) {
-		var content = isEditor( fieldId ) ? tinymce.get( fieldId ).getContent() : document.getElementById( fieldId ).value;
-		return content ? content : '';
+		var field = document.getElementById( fieldId );
+		if ( field ) {
+			var content = isEditor( fieldId ) ? tinymce.get( fieldId ).getContent() : field.value;
+			return content ? content : '';
+		}
+		return '';
 	}
 
 	/**
