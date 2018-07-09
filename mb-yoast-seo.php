@@ -4,7 +4,7 @@
  * Plugin URI: https://metabox.io/plugins/meta-box-yoast-seo/
  * Description: Add content of custom fields to Yoast SEO Content Analysis.
  * Author: MetaBox.io
- * Version: 1.3.3
+ * Version: 1.3.4
  * Author URI: https://metabox.io
  *
  * @package Meta Box
@@ -69,7 +69,7 @@ class MB_Yoast_SEO {
 		if ( empty( $field['id_attr'] ) ) {
 			$field['id_attr'] = $field['id'];
 		}
-		
+
 		// Add sub-fields recursively.
 		if ( isset( $field['fields'] ) ) {
 			foreach ( $field['fields'] as &$sub_field ) {

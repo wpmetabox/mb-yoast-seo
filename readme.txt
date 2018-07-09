@@ -3,8 +3,8 @@ Contributors: metabox, rilwis, fitwp, thaoha
 Donate link: http://www.deluxeblogtips.com/donate
 Tags: meta-box, custom-fields, custom-field, meta, meta-boxes, wordpress-seo, seo, seo-analysis, content-analysis, yoast, yoast-seo
 Requires at least: 4.2
-Tested up to: 4.9.1
-Stable tag: 1.3.3
+Tested up to: 4.9.7
+Stable tag: 1.3.4
 License: GPL-2.0
 
 Add content of custom fields to Yoast SEO Content Analysis.
@@ -46,6 +46,13 @@ To start using text limiter, just add the following parameters to fields:
 1. Plugin in action
 
 == Changelog ==
+
+= 1.3.4 =
+* Added check to see if element exists before it's targeted.
+* Fixed JS error when use group fields
+
+= 1.3.3 =
+* Use helper function to get correct URL to current folder, which can be used in plugins and themes
 
 = 1.3.2 =
 * Fix: Make sure JavaScript file is enqueued only for posts. No conflicts with MB Settings Page or other extensions.
