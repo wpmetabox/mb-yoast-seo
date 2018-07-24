@@ -1,0 +1,31 @@
+{
+  "name": "wpmetabox/mb-yoast-seo",
+  "type": "library",
+  "keywords": [
+    "wordpress",
+    "ui",
+    "select2",
+    "wp-admin",
+    "meta-box",
+    "wordpress-plugin",
+    "custom-field",
+    "seo"
+  ],
+  "description": "Add content of Meta Box custom fields to Yoast SEO Content Analysis.",
+  "homepage": "https://metabox.io/plugins/meta-box-yoast-seo/",
+  "license": "GPL-2.0",
+  "minimum-stability": "stable",
+  "authors": [
+    {
+      "name": "Tran Ngoc Tuan Anh",
+      "email": "anhtnt@elightup.com",
+      "homepage": "https://deluxeblogtips.com",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "mb-yoast-seo.php"
+    ]
+  }
+}
