@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Meta Box for Yoast Seo
- * Plugin URI: https://metabox.io/plugins/meta-box-yoast-seo/
+ * Plugin URI:  https://metabox.io/plugins/meta-box-yoast-seo/
  * Description: Add content of custom fields to Yoast SEO Content Analysis.
- * Author: MetaBox.io
- * Version: 1.3.4
- * Author URI: https://metabox.io
+ * Author:      MetaBox.io
+ * Version:     1.3.5
+ * Author URI:  https://metabox.io
  *
  * @package Meta Box
  * @subpage MB Yoast SEO
@@ -96,5 +96,7 @@ class MB_Yoast_SEO {
 	}
 }
 
-$mb_yoast_seo = new MB_Yoast_SEO;
-add_action( 'rwmb_enqueue_scripts', array( $mb_yoast_seo, 'enqueue' ) );
+if ( is_admin() ) {
+	$mb_yoast_seo = new MB_Yoast_SEO;
+	add_action( 'rwmb_enqueue_scripts', array( $mb_yoast_seo, 'enqueue' ) );
+}
