@@ -27,8 +27,5 @@
     "files": [
       "mb-yoast-seo.php"
     ]
-  },
-  "require": {
-    "wpmetabox/meta-box": "^4.15"
   }
 }
