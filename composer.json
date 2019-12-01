@@ -1,6 +1,6 @@
 {
   "name": "wpmetabox/mb-yoast-seo",
-  "type": "library",
+  "type": "wordpress-plugin",
   "keywords": [
     "wordpress",
     "ui",
@@ -19,13 +19,8 @@
     {
       "name": "Tran Ngoc Tuan Anh",
       "email": "anhtnt@elightup.com",
-      "homepage": "https://deluxeblogtips.com",
+      "homepage": "https://metabox.io",
       "role": "Developer"
     }
-  ],
-  "autoload": {
-    "files": [
-      "mb-yoast-seo.php"
-    ]
-  }
+  ]
 }
