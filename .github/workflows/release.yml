@@ -13,6 +13,7 @@ jobs:
       env:
         SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
         SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+        SLUG: meta-box-yoast-seo
     - name: Notify Slack
       run: |
         tag=$(git describe --tags `git rev-list --tags --max-count=1`)
