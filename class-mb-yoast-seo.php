@@ -19,7 +19,7 @@ class MB_Yoast_SEO {
 
 		// Only for posts.
 		$screen = get_current_screen();
-		if ( 'post' !== $screen->base ) {
+		if ( ! is_object( $screen ) || 'post' !== $screen->base ) {
 			return;
 		}
 
