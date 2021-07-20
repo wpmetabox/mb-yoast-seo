@@ -18,6 +18,8 @@
 
 		// Load plugin and add hooks.
 		load: function () {
+			$( 'input[class^="rwmb"], textarea[class^="rwmb"], select[class^="rwmb"], button[class^="rwmb"]' ).each( module.addNewField );
+
 			YoastSEO.app.registerPlugin( 'MetaBox', {status: 'loading'} );
 
 			// Make sure clone fields are added.
@@ -113,5 +115,15 @@
 	}
 
 	// Run on document ready.
-	$( module.init );
+	//$( module.init );
+	if ( typeof YoastSEO !== "undefined" && typeof YoastSEO.app !== "undefined" ) {
+		$( module.load );
+	} else {
+		$( window ).on(
+			"YoastSEO:ready",
+			function() {
+				$( module.load );
+			}
+		);
+	}
 })( jQuery, MBYoastSEO, document );
