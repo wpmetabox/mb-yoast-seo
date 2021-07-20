@@ -115,7 +115,6 @@
 	}
 
 	// Run on document ready.
-	//$( module.init );
 	if ( typeof YoastSEO !== "undefined" && typeof YoastSEO.app !== "undefined" ) {
 		$( module.load );
 	} else {
