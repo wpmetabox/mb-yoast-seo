@@ -8,14 +8,6 @@
 	var module = {
 		timeout: undefined,
 
-		// Initialize
-		init: function () {
-			addEventListener( 'load', module.load );
-
-			// Add new cloned fields.
-			$( document ).on( 'clone', 'input[class*="rwmb"], textarea[class*="rwmb"], select[class*="rwmb"], button[class*="rwmb"]', module.addNewField );
-		},
-
 		// Load plugin and add hooks.
 		load: function () {
 			$( 'input[class^="rwmb"], textarea[class^="rwmb"], select[class^="rwmb"], button[class^="rwmb"]' ).each( module.addNewField );
