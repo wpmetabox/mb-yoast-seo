@@ -18,9 +18,9 @@ class MB_Yoast_SEO {
 		list( , $url ) = RWMB_Loader::get_path( dirname( __FILE__ ) );
 
 		// Only for posts.
-		if ( !function_exists( 'get_current_screen' ) ) { 
-			require_once ABSPATH . '/wp-admin/includes/screen.php'; 
-		 }
+		if ( !function_exists( 'get_current_screen' ) ) {
+			return;
+		}
 		$screen = get_current_screen();
 		if ( ! is_object( $screen ) || 'post' !== $screen->base ) {
 			return;
