@@ -4,7 +4,7 @@ Donate link: https://metabox.io/pricing/
 Tags: meta-box, custom-fields, custom-field, meta, meta-boxes, wordpress-seo, seo, seo-analysis, content-analysis, yoast, yoast-seo
 Requires at least: 5.0
 Tested up to: 5.8
-Stable tag: 1.3.7
+Stable tag: 1.3.8
 License: GPL-2.0
 
 Add content of Meta Box custom fields to Yoast SEO Content Analysis.
@@ -46,6 +46,9 @@ To start using text limiter, just add the following parameters to fields:
 1. Plugin in action
 
 == Changelog ==
+
+= 1.3.8 - 2021-07-27 =
+* Fix undefined get_current_screen function on the frontend.
 
 = 1.3.7 - 2021-07-21 =
 * Fix Yoast SEO not counting text, due to change in the Yoast SEO's API.
