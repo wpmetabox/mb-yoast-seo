@@ -1,7 +1,5 @@
 /* global jQuery, YoastSEO, MBYoastSEO */
-(function ( $, fields, document ) {
-	'use strict';
-
+( ( $, fields, rwmb, document ) => {
 	/**
 	 * The analyze module for Yoast SEO.
 	 */
@@ -9,17 +7,15 @@
 		timeout: undefined,
 
 		// Load plugin and add hooks.
-		load: function () {
-			$( 'input[class^="rwmb"], textarea[class^="rwmb"], select[class^="rwmb"], button[class^="rwmb"]' ).each( module.addNewField );
-
-			YoastSEO.app.registerPlugin( 'MetaBox', {status: 'loading'} );
+		load: () => {
 
 			// Make sure clone fields are added.
 			getClonedFields();
 
 			// Update Yoast SEO analyzer when fields are updated.
-			fields.map( module.listenToField );
+			fields.map( module.listenToField );console.log(fields);
 
+			YoastSEO.app.registerPlugin( 'MetaBox', {status: 'loading'} );
 			YoastSEO.app.pluginReady( 'MetaBox' );
 			YoastSEO.app.registerModification( 'content', module.addContent, 'MetaBox', 5 );
 
@@ -27,16 +23,27 @@
 			module.update();
 		},
 
+		onClone: () => {
+			setTimeout( () => {
+
+				// Make sure clone fields are added.
+				getClonedFields();
+
+				// Update SEO By Rank Math analyzer when fields are updated.
+				fields.map( module.listenToField );
+
+			}, 500 );
+		},
 		// Add content to Yoast SEO Analyzer.
-		addContent: function ( content ) {
-			fields.map( function ( fieldId ) {
+		addContent: ( content ) => {
+			fields.map( ( fieldId ) => {
 				content += ' ' + getFieldContent( fieldId );
 			} );
 			return content;
 		},
 
 		// Listen to field change and update Yoast SEO analyzer.
-		listenToField: function( fieldId ) {
+		listenToField: ( fieldId ) => {
 			if ( isEditor( fieldId ) ) {
 				tinymce.get( fieldId ).on( 'keyup', module.update );
 				return;
@@ -48,9 +55,9 @@
 		},
 
 		// Update the YoastSEO result. Use debounce technique, which triggers only when keys stop being pressed.
-		update: function () {
+		update: () => {
 			clearTimeout( module.timeout );
-			module.timeout = setTimeout( function () {
+			module.timeout = setTimeout( () => {
 				YoastSEO.app.refresh();
 			}, 250 );
 		},
@@ -58,7 +65,7 @@
 		/**
 		 * Add new cloned field to the list and listen to its change.
 		 */
-		addNewField: function() {
+		addNewField: () => {
 			if ( -1 === fields.indexOf( this.id ) ) {
 				fields.push( this.id );
 				module.listenToField( this.id );
@@ -69,10 +76,10 @@
 	/**
 	 * Get clone fields.
 	 */
-	function getClonedFields() {
-		fields.map( function ( fieldId ) {
+	getClonedFields = () => {
+		fields.map( ( fieldId ) => {
 			var elements = document.querySelectorAll( '[id^=' + fieldId + '_]' );
-			Array.prototype.forEach.call( elements, function( element ) {
+			Array.prototype.forEach.call( elements, ( element ) => {
 				if ( -1 === fields.indexOf( element.id ) ) {
 					fields.push( element.id );
 				}
@@ -87,7 +94,7 @@
 	 * @param fieldId The field ID
 	 * @returns string
 	 */
-	function getFieldContent( fieldId ) {
+	getFieldContent = ( fieldId ) => {
 		var field = document.getElementById( fieldId );
 		if ( field ) {
 			var content = isEditor( fieldId ) ? tinymce.get( fieldId ).getContent() : field.value;
@@ -102,7 +109,7 @@
 	 * @param fieldId The field ID
 	 * @returns boolean
 	 */
-	function isEditor( fieldId ) {
+	isEditor = ( fieldId ) => {
 		return typeof tinymce !== 'undefined' && tinymce.get( fieldId ) !== null;
 	}
 
@@ -112,9 +119,13 @@
 	} else {
 		$( window ).on(
 			"YoastSEO:ready",
-			function() {
+			() => {
 				$( module.load );
 			}
 		);
 	}
-})( jQuery, MBYoastSEO, document );
+	// Run on add/remove clone fields
+	rwmb.$document
+		.on( 'click', '.add-clone', module.onClone )
+		.on( 'click', '.remove-clone', module.onClone );
+} )( jQuery, MBYoastSEO, rwmb, document );

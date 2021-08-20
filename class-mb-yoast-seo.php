@@ -32,7 +32,7 @@ class MB_Yoast_SEO {
 		if ( empty( $this->fields ) ) {
 			return;
 		}
-		wp_enqueue_script( 'mb-yoast-seo', $url . 'script.js', array( 'jquery' ), '1.3.1', true );
+		wp_enqueue_script( 'mb-yoast-seo', $url . 'script.js', array( 'jquery', 'rwmb' ), '1.3.2', true );
 
 		// Send list of fields to JavaScript.
 		wp_localize_script( 'mb-yoast-seo', 'MBYoastSEO', $this->fields );
