@@ -13,7 +13,7 @@
 			getClonedFields();
 
 			// Update Yoast SEO analyzer when fields are updated.
-			fields.map( module.listenToField );console.log(fields);
+			fields.map( module.listenToField );
 
 			YoastSEO.app.registerPlugin( 'MetaBox', {status: 'loading'} );
 			YoastSEO.app.pluginReady( 'MetaBox' );
