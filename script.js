@@ -15,7 +15,7 @@
 			// Update Yoast SEO analyzer when fields are updated.
 			fields.map( module.listenToField );
 
-			YoastSEO.app.registerPlugin( 'MetaBox', {status: 'loading'} );
+			YoastSEO.app.registerPlugin( 'MetaBox', { status: 'loading' } );
 			YoastSEO.app.pluginReady( 'MetaBox' );
 			YoastSEO.app.registerModification( 'content', module.addContent, 'MetaBox', 5 );
 
@@ -85,7 +85,7 @@
 				}
 			} );
 		} );
-	}
+	};
 
 	/**
 	 * Get field content.
@@ -101,7 +101,7 @@
 			return content ? content : '';
 		}
 		return '';
-	}
+	};
 
 	/**
 	 * Check if the field is a TinyMCE editor.
@@ -109,9 +109,7 @@
 	 * @param fieldId The field ID
 	 * @returns boolean
 	 */
-	isEditor = ( fieldId ) => {
-		return typeof tinymce !== 'undefined' && tinymce.get( fieldId ) !== null;
-	}
+	isEditor = fieldId => typeof tinymce !== 'undefined' && tinymce.get( fieldId ) !== null;
 
 	// Run on document ready.
 	if ( typeof YoastSEO !== "undefined" && typeof YoastSEO.app !== "undefined" ) {
