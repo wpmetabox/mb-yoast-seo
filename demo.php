@@ -17,7 +17,7 @@ add_filter( 'rwmb_meta_boxes', function ( $meta_boxes ) {
 				'add_to_wpseo_analysis' => true,
 			],
 			[
-				'id'                    => 'editor',
+				'id'                    => 'editor2',
 				'name'                  => 'Editor',
 				'type'                  => 'wysiwyg',
 				'add_to_wpseo_analysis' => true,

@@ -13,9 +13,9 @@ class MB_Yoast_SEO {
 	 * @param RW_Meta_Box $meta_box The meta box object.
 	 */
 	public function enqueue( RW_Meta_Box $meta_box ) {
-
-		// Use helper function to get correct URL to current folder, which can be used in themes/plugins.
-		list( , $url ) = RWMB_Loader::get_path( dirname( __FILE__ ) );
+		if ( ! defined( 'WPSEO_VERSION' ) ) {
+			return;
+		}
 
 		// Only for posts.
 		if ( !function_exists( 'get_current_screen' ) ) {
@@ -32,7 +32,10 @@ class MB_Yoast_SEO {
 		if ( empty( $this->fields ) ) {
 			return;
 		}
-		wp_enqueue_script( 'mb-yoast-seo', $url . 'script.js', array( 'jquery' ), '1.3.1', true );
+
+		// Use helper function to get correct URL to current folder, which can be used in themes/plugins.
+		list( , $url ) = RWMB_Loader::get_path( dirname( __FILE__ ) );
+		wp_enqueue_script( 'mb-yoast-seo', $url . 'script.js', array( 'jquery', 'rwmb' ), '1.3.2', true );
 
 		// Send list of fields to JavaScript.
 		wp_localize_script( 'mb-yoast-seo', 'MBYoastSEO', $this->fields );
