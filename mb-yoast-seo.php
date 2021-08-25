@@ -4,7 +4,7 @@
  * Plugin URI:  https://metabox.io/plugins/meta-box-yoast-seo/
  * Description: Add content of custom fields to Yoast SEO Content Analysis.
  * Author:      MetaBox.io
- * Version:     1.3.8
+ * Version:     1.3.9
  * Author URI:  https://metabox.io
  */
 
