@@ -1,9 +1,9 @@
 === Meta Box for Yoast SEO ===
 Contributors: metabox, rilwis, elightup, thaoha
 Donate link: https://metabox.io/pricing/
-Tags: meta-box, custom-fields, custom-field, meta, meta-boxes, wordpress-seo, seo, seo-analysis, content-analysis, yoast, yoast-seo
+Tags: meta box, custom fields, yoast, seo
 Requires at least: 5.0
-Tested up to: 5.8
+Tested up to: 6.6.2
 Stable tag: 1.3.9
 License: GPL-2.0
 

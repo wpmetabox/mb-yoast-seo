@@ -6,6 +6,7 @@
  * Author:      MetaBox.io
  * Version:     1.3.9
  * Author URI:  https://metabox.io
+ * License:     GPL-2
  */
 
 if ( ! class_exists( 'MB_Yoast_SEO' ) ) {
