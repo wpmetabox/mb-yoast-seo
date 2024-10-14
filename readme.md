@@ -1,6 +1,6 @@
 ## Description
 
-**Meta Box for WordPress SEO** is a free extension for [Meta Box](https://metabox.io) plugin which allows developers to add content of custom fields to Yoast SEO Content Analysis to have better SEO score.
+**MB Yoast SEO Integration** is a free extension for [Meta Box](https://metabox.io) plugin which allows developers to add content of custom fields to Yoast SEO Content Analysis to have better SEO score.
 
 There are situations when we create custom fields to store real content for the posts. They are actually displayed in the frontend. Search engines such as Google or Bing see them and analyze them. But by default, Yoast SEO plugin takes only post content to analyze for SEO score and gives us feedback based on the post content. The plugin doesn’t analyze the all the content that appears to the search engine, which is a big missing part and that sometimes confuses us in SEO term.
 
