@@ -1,4 +1,4 @@
-=== Meta Box for Yoast SEO ===
+=== MB Yoast SEO Integration ===
 Contributors: metabox, rilwis, elightup, thaoha
 Donate link: https://metabox.io/pricing/
 Tags: meta box, custom fields, yoast, seo
@@ -15,7 +15,7 @@ Add content of Meta Box custom fields to Yoast SEO Content Analysis.
 
 There are situations when we create custom fields to store real content for the posts. They are actually displayed in the frontend. Search engines such as Google or Bing see them and analyze them. But by default, Yoast SEO plugin takes only post content to analyze for SEO score and gives us feedback based on the post content. The plugin doesn't analyze the all the content that appears to the search engine, which is a big missing part and that sometimes confuses us in SEO term.
 
-So, the plugin *Meta Box for Yoast SEO* fixes that problem by allowing us to add custom fields to the content analyzed by Yoast SEO plugin. This way, the Yoast SEO plugin and search engine will see the same content and we will have a correct advice for SEO content as well as correct SEO score.
+So, the plugin *MB Yoast SEO Integration* fixes that problem by allowing us to add custom fields to the content analyzed by Yoast SEO plugin. This way, the Yoast SEO plugin and search engine will see the same content and we will have a correct advice for SEO content as well as correct SEO score.
 
 ### Plugin Links
 

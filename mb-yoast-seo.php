@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Meta Box for Yoast SEO
+ * Plugin Name: MB Yoast SEO Integration
  * Plugin URI:  https://metabox.io/plugins/meta-box-yoast-seo/
  * Description: Add content of custom fields to Yoast SEO Content Analysis.
  * Author:      MetaBox.io
